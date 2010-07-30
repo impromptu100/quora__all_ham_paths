@@ -1,0 +1,77 @@
+>----------------------------------------------------------------------------
+> A simple iterative approach to finding all possible hamiltonion paths.      
+>----------------------------------------------------------------------------
+
+>> Overview
+
+The challenge presented on Quora is to find all possible paths from A/C air
+intake valve to the air conditioner. The full description can be found at
+
+http://www.quora.com/challenges
+
+In other words the challenge is to find set of all hamiltonion paths from
+the air source to air sink, here the graph is restricted to planar 2D grid
+graph where the maximum degree of any given vertex is 4.
+
+The code given here is a very crude attempt at solving the problem, and in
+no way can it run under 5 seconds (it takes ~106 seconds for 7x7 grid on a
+core2duo laptop clocked at 2.00Ghz) for the given example input on the
+challenge page. Given the restriction of how the 2D grid can have only
+horizontal or vertical edges, I believe a much faster and efficient version
+of code is possible though I am not sure of the 5 seconds execution time.
+
+>> What is inside?
+
+The idea is to do an exhaustive and iterative depth-first search covering
+every possible permutation of connected edges starting from the source to
+find the destination after having covered all the vertices. The only
+improvement from this raw approach that I have done is to prune some
+unnecessary paths from the search.
+
+Consider the following case for a 5x5 grid, here vertices are numbered
+from 0 onwards till 24.
+
+ 0--1--2--3--4
+             |
+ 5--6--7--8--9
+ |
+10 11 12 13 14
+ |
+15-16-17-18-19
+
+20 21 22 23 24
+
+In the above example after eaching vertex 19 there is no way that such a
+path can proceed in either direction an reach the destination and cover
+all the vertices at the same time. An it does not matter where the
+destination is present, either it can be in (11,12,13,14) or (20,21,22,23,
+24).
+
+We need to backtrack such cases to one vertex back (18 in the above case)
+and continue the iterative depth-first search. To detect these cases, we
+can perform a check at every step to see if the degree of a vertex drops
+from 4 to 3.
+
+The only drawback of this is that we need to do this check for every step.
+Nevertheless the performance improvement is almost four fold for a 7x7 input
+when compared to the basic iterative method without this check.
+
+A hash table is maintained visited_hm for the set of visited vertices using
+tr1 unordered map, and another hashtable for storing the set of vertices in
+the graph. For tracking the edges on the graph adjacency list is used in the
+form of a 2D vector.
+
+If you need more details feel free to check the code!!
+
+>> What about 5 seconds limit?
+
+My idea behind attempting the challenge was to get the goal using a simple
+method. I have given some thought about the speed-up and got few ideas of
+how it can be done. I think by taking advantage of the limited connectivity
+of the graph one can put in the logic to decrease the execution time,
+
+so, yes I think 5 seconds limit can be achieved..
+
+>> Bugs??
+If you find that I have logical errors in my code, please send an email to
+praveer(dot)pdra(at)gmail(dot)com. Please no spams or advertising.
