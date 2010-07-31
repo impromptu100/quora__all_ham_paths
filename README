@@ -1,5 +1,5 @@
 >----------------------------------------------------------------------------
-> A simple iterative approach to finding all possible hamiltonion paths.      
+> A simple iterative approach to finding all possible Hamiltonian paths.      
 >----------------------------------------------------------------------------
 
 >> Overview
@@ -9,13 +9,13 @@ intake valve to the air conditioner. The full description can be found at
 
 http://www.quora.com/challenges
 
-In other words the challenge is to find set of all hamiltonion paths from
+In other words the challenge is to find set of all Hamiltonian paths from
 the air source to air sink, here the graph is restricted to planar 2D grid
 graph where the maximum degree of any given vertex is 4.
 
 The code given here is a very crude attempt at solving the problem, and in
 no way can it run under 5 seconds (it takes ~106 seconds for 7x7 grid on a
-core2duo laptop clocked at 2.00Ghz) for the given example input on the
+core2duo laptop clocked at 2.00GHz) for the given example input on the
 challenge page. Given the restriction of how the 2D grid can have only
 horizontal or vertical edges, I believe a much faster and efficient version
 of code is possible though I am not sure of the 5 seconds execution time.
@@ -41,8 +41,8 @@ from 0 onwards till 24.
 
 20 21 22 23 24
 
-In the above example after eaching vertex 19 there is no way that such a
-path can proceed in either direction an reach the destination and cover
+In the above example after reaching vertex 19 there is no way that such a
+path can proceed in either direction and reach the destination and cover
 all the vertices at the same time. An it does not matter where the
 destination is present, either it can be in (11,12,13,14) or (20,21,22,23,
 24).
