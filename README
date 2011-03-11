@@ -70,8 +70,4 @@ method. I have given some thought about the speed-up and got few ideas of
 how it can be done. I think by taking advantage of the limited connectivity
 of the graph one can put in the logic to decrease the execution time,
 
-so, yes I think 5 seconds limit can be achieved..
-
->> Bugs??
-If you find that I have logical errors in my code, please send an email to
-praveer(dot)pdra(at)gmail(dot)com. Please no spams or advertising.
+so, yes I think 5 seconds limit can be achieved.
